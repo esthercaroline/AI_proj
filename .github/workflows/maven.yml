@@ -52,7 +52,7 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: esthercaroline/AI-proj-software:${{ github.sha }}
+        tags: esthercaroline/ai-proj-software:${{ github.sha }}
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@master
       with:
@@ -61,6 +61,6 @@ jobs:
         key: ${{ secrets.KEY_TEST }}
         port: 22
         script: |
-          docker stop AI-proj-software
-          docker rm --force AI-proj-software
-          docker run -d -p 8080:8080 --network=rede --name AI-proj-software esthercaroline/AI-proj-software:${{ github.sha }}
+          docker stop ai-proj-software
+          docker rm --force ai-proj-software
+          docker run -d -p 8080:8080 --network=rede --name ai-proj-software esthercaroline/ai-proj-software:${{ github.sha }}
